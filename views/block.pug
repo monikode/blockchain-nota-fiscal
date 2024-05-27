@@ -55,8 +55,31 @@ block content
       input.form-control(type='text', name='amount', required=true)
       button#verify.btn.btn-primary.ladda-button(data-style='expand-right')
               span.ladda-label #{__('Verificar')}
+              
+    if invoices.length > 0
+      table.table.table-striped
+        thead
+          tr
+            th ID
+            th Empresa
+            th Cliente
+            th Valor
+            th Data
+            th Hash
+        tbody
+          each invoice in invoices
+            tr
+              td= invoice.id
+              td= invoice.company
+              td= invoice.customer
+              td= invoice.amount
+              td= invoice.date
+              td= invoice.hash
+    else
+      p Nenhuma nota fiscal encontrada.
 
   script.
+    var invoices = []
     $(function() {
       $('#block1chain1number').bind('input propertychange', function() { updateHash(1, 1); });
       $('#block1chain1nonce').bind('input propertychange', function() { updateHash(1, 1); });
@@ -87,6 +110,7 @@ block content
           l.start();
           setTimeout(function() {
               mine(block, chain, false);
+              invoices.push([hash: $('#block'+block+'chain'+chain+'hash').val()])
               l.stop();
             }, 250); // give UI time to update
         });

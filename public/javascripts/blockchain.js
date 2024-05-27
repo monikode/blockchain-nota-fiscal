@@ -5,6 +5,8 @@
 // number of zeros required at front of hash
 var difficultyMajor = 4;
 
+var invoices = []
+
 // 0-15, maximum (decimal) value of the hex digit after the front
 // 15 means any hex character is allowed next
 // 7  means next bit must be 0 (because 0x7=0111),

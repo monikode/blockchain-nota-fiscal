@@ -14,9 +14,25 @@
          input.form-control(id='block'+block.block+'chain'+block.chain+'nonce', type='text', value=block.nonce)
 
     .form-group
-      label.col-sm-2.control-label(for='block'+block.block+'chain'+block.chain+'data') #{__('Data')}:
+      label.col-sm-2.control-label(for='block1chain1nonce') #{__('ID')}:
       .col-sm-10
-        textarea.form-control(id='block'+block.block+'chain'+block.chain+'data', rows='10')
+          input#block1chain1id.form-control(type='text', name='id', required=true)
+    .form-group
+      label.col-sm-2.control-label(for='block1chain1nonce') #{__('Empresa')}:
+      .col-sm-10
+          input#block1chain1company.form-control(type='text', name='company', required=true)
+    .form-group
+      label.col-sm-2.control-label(for='block1chain1nonce') #{__('Cliente')}:
+      .col-sm-10
+          input#block1chain1customer.form-control(type='text', name='customer', required=true)
+    .form-group
+      label.col-sm-2.control-label(for='block1chain1nonce') #{__('Valor')}:
+      .col-sm-10
+          input#block1chain1amount.form-control(type='number', name='amount', required=true)
+    .form-group
+      label.col-sm-2.control-label(for='block1chain1nonce') #{__('Data')}:
+      .col-sm-10
+          input#block1chain1date.form-control(type='date', name='date', required=true)
 
     #state.form-group
       label.col-sm-2.control-label(for='block'+block.block+'chain'+block.chain+'previous') #{__('Prev')}:
