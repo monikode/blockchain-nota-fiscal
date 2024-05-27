@@ -1,0 +1,25 @@
+extends layout
+
+block content
+  .container
+    h1= title
+    if invoices.length > 0
+      table.table.table-striped
+        thead
+          tr
+            th ID
+            th Empresa
+            th Cliente
+            th Valor
+            th Data
+        tbody
+          each invoice in invoices
+            tr
+              td= invoice.id
+              td= invoice.company
+              td= invoice.customer
+              td= invoice.amount
+              td= invoice.date
+    else
+      p Nenhuma nota fiscal encontrada.
+    a(href='/') Voltar

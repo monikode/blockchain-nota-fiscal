@@ -83,3 +83,29 @@ function mine(block, chain, isChain) {
     }
   }
 }
+
+
+function verifyHash(block, chain) {
+  // Obter o hash atual do bloco
+  var currentHash = $('#block' + block + 'chain' + chain + 'hash').val();
+
+  // Comparar o hash com o padrão de dificuldade
+  if (currentHash.substr(0, patternLen) !== pattern) {
+    console.log("Hash inválido: não atende ao padrão de dificuldade.");
+    return false;
+  }
+
+  // Verificar integridade do bloco anterior (se não for o primeiro bloco)
+  if (block > 1) {
+    var previousHash = $('#block' + (block - 1) + 'chain' + chain + 'hash').val();
+    var calculatedPreviousHash = sha256(block - 1, chain);
+    if (previousHash !== calculatedPreviousHash) {
+      console.log("Hash inválido: integridade do bloco anterior comprometida.");
+      return false;
+    }
+  }
+
+  // Se chegou até aqui, o hash é válido
+  console.log("Hash válido.");
+  return true;
+}

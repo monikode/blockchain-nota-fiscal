@@ -1,13 +1,24 @@
 extends layout
 
 block content
-  a(href='https://github.com/anders94/blockchain-demo/')
-    img.github-ribbon(src='/images/fork-me-on-github-ribbon.png', alt='Fork me on GitHub')
-  .container
-    h1 Blockchain Demo
-    .embed-responsive.embed-responsive-16by9
-      iframe.embed-responsive-item(src='https://www.youtube.com/embed/_160oMzblY8')
-    br
-    p.pull-right by 
-      a(href='http://andersbrownworth.com/') Anders Brownworth 
-      | 1K3NvcuZzVTueHW1qhkG2Cm3viRkh2EXJp
+    h1 Sistema de Notas Fiscais
+    form(action='/create-invoice', method='post')
+        div
+            label(for='id') ID
+            input(type='text', name='id', required=true)
+        div
+            label(for='company') Empresa
+            input(type='text', name='company', required=true)
+        div
+            label(for='customer') Cliente
+            input(type='text', name='customer', required=true)
+        div
+            label(for='amount') Valor
+            input(type='number', name='amount', required=true)
+        div
+            label(for='date') Data
+            input(type='date', name='date', required=true)
+        div
+            button(type='submit') Emitir Nota Fiscal
+    a(href='/invoices') Ver Notas Fiscais
+    a(href='/logout') Logout

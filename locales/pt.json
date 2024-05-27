@@ -15,5 +15,11 @@
 	"Tx": "Tx",
 	"$": "Re$",
 	"From": "De",
-	"Coinbase Transactions": "Transações Coinbase"
+	"Coinbase Transactions": "Transações Coinbase",
+	"Notas fiscais": "Notas fiscais",
+	"ID": "ID",
+	"Empresa": "Empresa",
+	"Cliente": "Cliente",
+	"Valor": "Valor",
+	"Verificar": "Verificar"
 }
